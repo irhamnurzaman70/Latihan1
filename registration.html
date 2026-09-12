@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Registration | Dayton Family Practice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header id="site-header" class="site-header"></header>
+  <main class="page">
+    <section class="content-card" style="margin-top:24px;">
+      <h1 class="page-title">Patient Registration Form</h1>
+      <p style="text-align:center;">Please complete this form before your first visit. This is a demonstration form and does not send data to a clinic system.</p>
+      <form class="form" id="reg-form">
+        <label>Full name <input name="name" required></label>
+        <label>Date of birth <input type="date" name="dob" required></label>
+        <label>Phone <input type="tel" name="phone" required></label>
+        <label>Email <input type="email" name="email"></label>
+        <label>Preferred physician
+          <select name="physician">
+            <option>Cynthia Kallet, D.O.</option>
+            <option>Zachary D. Denka, M.D.</option>
+            <option>No preference</option>
+          </select>
+        </label>
+        <label>Reason for visit <textarea name="reason" required></textarea></label>
+        <button class="btn" type="submit">Submit Registration</button>
+        <div class="toast" id="reg-toast">Thank you. Your registration details have been recorded locally for this demo.</div>
+      </form>
+    </section>
+  </main>
+  <footer id="site-footer" class="site-footer"></footer>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById("reg-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      document.getElementById("reg-toast").style.display = "block";
+      event.target.reset();
+    });
+  </script>
+</body>
+</html>

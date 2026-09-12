@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pay Bill | Dayton Family Practice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header id="site-header" class="site-header"></header>
+  <main class="page">
+    <section class="content-card" style="margin-top:24px;">
+      <h1 class="page-title">Online Bill Payment</h1>
+      <p style="text-align:center;">Enter your statement details below. This demo does not process real payments.</p>
+      <form class="form" id="pay-form">
+        <label>Account / statement number <input name="account" required></label>
+        <label>Amount due <input type="number" min="1" step="0.01" name="amount" required></label>
+        <label>Name on card <input name="cardname" required></label>
+        <label>Card number <input name="card" inputmode="numeric" maxlength="19" required></label>
+        <button class="btn" type="submit">Pay Now</button>
+        <div class="toast" id="pay-toast">Payment simulation complete. No charges were made.</div>
+      </form>
+    </section>
+  </main>
+  <footer id="site-footer" class="site-footer"></footer>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById("pay-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      document.getElementById("pay-toast").style.display = "block";
+      event.target.reset();
+    });
+  </script>
+</body>
+</html>
